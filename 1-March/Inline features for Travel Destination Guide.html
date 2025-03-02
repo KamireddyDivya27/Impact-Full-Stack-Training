@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destination Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffdab9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            background-color: #ffa07a;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            width: calc(33.333% - 40px); /* Adjust width to fit three per row */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border: 3px solid #ffa07a;
+            box-sizing: border-box;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .card h2 {
+            color: #ffa07a;
+            border-bottom: 2px solid #ffa07a;
+            padding-bottom: 5px;
+        }
+        .card p {
+            color: #666;
+            border-top: 2px solid #ffa07a;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Travel Destination Guide</h1>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Paris, France</h2>
+            <img src="https://s1.1zoom.me/prev/542/France_Paris_Eiffel_Tower_541733_600x400.jpg" alt="Eiffel Tower">
+            <p>Paris, the capital of France, is known for its art, gastronomy, and culture.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Tokyo, Japan</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz6wS1wul87U6Lg5qCaaEW--N-OVFdClI8DA&s" alt="Tokyo Skyline">
+            <p>Tokyo is a bustling metropolis that blends modern skyscrapers with historic temples.</p>
+        </div>
+        
+        <div class="card">
+            <h2>New York City, USA</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HX0YQqs6fO4mU1QAZfDtDV-vwTtQ0P9Xpg&s" alt="Statue of Liberty">
+            <p>The Big Apple is famous for Times Square, Central Park, and Broadway shows.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Sydney, Australia</h2>
+            <img src="https://www.shutterstock.com/image-photo/sydney-australia-december-05-2023-600nw-2398287065.jpg" alt="Sydney Opera House">
+            <p>Sydney boasts stunning beaches, the Sydney Opera House, and the Harbour Bridge.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Rome, Italy</h2>
+            <img src="https://static.toiimg.com/thumb/width-600,height-400,msid-105954346.cms" alt="Colosseum">
+            <p>Rome, the Eternal City, is home to the Colosseum, Vatican City, and Italian cuisine.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Dubai, UAE</h2>
+            <img src="https://www.shutterstock.com/image-photo/burj-khalifa-dubai-uae-tallest-600nw-2374827551.jpg" alt="Burj Khalifa">
+            <p>Dubai is known for its ultramodern architecture, luxury shopping, and vibrant nightlife.</p>
+        </div>
+    </div>
+</body>
+</html>
