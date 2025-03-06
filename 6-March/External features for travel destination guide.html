@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destination Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffdab9;
+            margin: 0;
+            padding: 20px;
+        }
+        nav {
+            background-color: #ffa07a;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        h1 {
+            background-color: #ffa07a;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            color: white;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        .search-bar {
+            margin: 20px 0;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 10px;
+            border: 2px solid #ffa07a;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .destination {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border: 3px solid #ffa07a;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .destination:hover {
+            transform: scale(1.05);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .destination h2 {
+            color: #ffa07a;
+            border-bottom: 2px solid #ffa07a;
+            padding-bottom: 5px;
+        }
+        .destination img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .destination p {
+            color: #666;
+            border-top: 2px solid #ffa07a;
+            padding-top: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #ffa07a;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Destinations</a>
+        <a href="#">Contact</a>
+    </nav>
+    <h1>Travel Destination Guide</h1>
+    
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search destinations...">
+    </div>
+    
+    <section class="container">
+        <div class="destination" onclick="openModal('Paris, France', 'Paris, the capital of France, is known for its art, gastronomy, and culture.', 'https://s1.1zoom.me/prev/542/France_Paris_Eiffel_Tower_541733_600x400.jpg')">
+            <h2>Paris, France</h2>
+            <img src="https://s1.1zoom.me/prev/542/France_Paris_Eiffel_Tower_541733_600x400.jpg" alt="Eiffel Tower">
+            <p>Paris, the capital of France, is known for its art, gastronomy, and culture.</p>
+        </div>
+        
+        <div class="destination" onclick="openModal('Tokyo, Japan', 'Tokyo is a bustling metropolis that blends modern skyscrapers with historic temples.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz6wS1wul87U6Lg5qCaaEW--N-OVFdClI8DA&s')">
+            <h2>Tokyo, Japan</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz6wS1wul87U6Lg5qCaaEW--N-OVFdClI8DA&s" alt="Tokyo Skyline">
+            <p>Tokyo is a bustling metropolis that blends modern skyscrapers with historic temples.</p>
+        </div>
+        
+        <div class="destination" onclick="openModal('New York City, USA', 'The Big Apple is famous for Times Square, Central Park, and Broadway shows.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HX0YQqs6fO4mU1QAZfDtDV-vwTtQ0P9Xpg&s')">
+            <h2>New York City, USA</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HX0YQqs6fO4mU1QAZfDtDV-vwTtQ0P9Xpg&s" alt="Statue of Liberty">
+            <p>The Big Apple is famous for Times Square, Central Park, and Broadway shows.</p>
+        </div>
+        
+        <div class="destination" onclick="openModal('Sydney, Australia', 'Sydney boasts stunning beaches, the Sydney Opera House, and the Harbour Bridge.', 'https://www.shutterstock.com/image-photo/sydney-australia-december-05-2023-600nw-2398287065.jpg')">
+            <h2>Sydney, Australia</h2>
+            <img src="https://www.shutterstock.com/image-photo/sydney-australia-december-05-2023-600nw-2398287065.jpg" alt="Sydney Opera House">
+            <p>Sydney boasts stunning beaches, the Sydney Opera House, and the Harbour Bridge.</p>
+        </div>
+        
+        <div class="destination" onclick="openModal('Rome, Italy', 'Rome, the Eternal City, is home to the Colosseum, Vatican City, and Italian cuisine.', 'https://static.toiimg.com/thumb/width-600,height-400,msid-105954346.cms')">
+            <h2>Rome, Italy</h2>
+            <img src="https://static.toiimg.com/thumb/width-600,height-400,msid-105954346.cms" alt="Colosseum">
+            <p>Rome, the Eternal City, is home to the Colosseum, Vatican City, and Italian cuisine.</p>
+        </div>
+        
+        <div class="destination" onclick="openModal('Dubai, UAE', 'Dubai is known for its ultramodern architecture, luxury shopping, and vibrant nightlife.', 'https://www.shutterstock.com/image-photo/burj-khalifa-dubai-uae-tallest-600nw-2374827551.jpg')">
+            <h2>Dubai, UAE</h2>
+            <img src="https://www.shutterstock.com/image-photo/burj-khalifa-dubai-uae-tallest-600nw-2374827551.jpg" alt="Burj Khalifa">
+            <p>Dubai is known for its ultramodern architecture, luxury shopping, and vibrant nightlife.</p>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Travel Destination Guide. All rights reserved.</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="" alt="" style="width: 100%; border-radius: 10px;">
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, description, imageUrl) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('modalImage').src = imageUrl;
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        document.getElementById('search').addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+            const destinations = document.querySelectorAll('.destination');
+            destinations.forEach(destination => {
+                const title = destination.querySelector('h2').innerText.toLowerCase();
+                if (title.includes(searchValue)) {
+                    destination.style.display = 'block';
+                } else {
+                    destination.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
